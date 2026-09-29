@@ -1,13 +1,67 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#FFFFFF"><link rel="icon" type="image/png" href="assets/brand/favicon-hbs-circle.png"><title>Portfólio de sites — HBS</title><link rel="stylesheet" href="assets/css/styles.css"><script defer src="assets/data/projects.js"></script><script defer src="assets/js/app.js"></script></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="icon" type="image/png" href="assets/brand/favicon-hbs-circle.png">
+  <title>Portfólio de sites — HBS</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/data/projects.js"></script>
+  <script defer src="assets/js/catalog.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
 <body>
 <a class="skip" href="#catalogo">Pular para os projetos</a>
-<header class="header wrap"><a class="brand" href="./" aria-label="HBS — início"><span class="logo"><img src="assets/brand/logo_hbs.png" alt="HBS" width="1080" height="1080"></span><span>Portfólio de sites</span></a><span class="internal"><i></i> ACERVO INTERNO</span></header>
+<header class="header wrap">
+  <a class="brand" href="./" aria-label="HBS — início"><span class="logo"><img src="assets/brand/logo_hbs.png" alt="HBS" width="1080" height="1080"></span><span>Portfólio de sites</span></a>
+  <span class="internal"><i aria-hidden="true"></i> ACERVO INTERNO</span>
+</header>
 <main class="wrap">
-<section class="intro" aria-labelledby="title"><div><p class="eyebrow">HBS / PROJETOS DIGITAIS</p><h1 id="title">Diferentes marcas.<br><span>Nosso olhar digital.</span></h1></div><div class="intro-note"><span class="note-arrow" aria-hidden="true">↙</span><p>Explore os sites desenvolvidos pela HBS. Filtre por segmento, amplie as capturas e conheça cada projeto online.</p></div></section>
-<section id="catalogo" aria-labelledby="catalog-title"><div class="catalog-top"><h2 id="catalog-title">Explore o acervo</h2><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar projeto…" aria-label="Buscar projeto pelo nome"></label></div><div id="filters" class="filters" role="group" aria-label="Filtrar por segmento"></div><div class="results"><p id="count" role="status" aria-live="polite"></p><span>Clique na captura para explorar <span aria-hidden="true">↗</span></span></div><div id="grid" class="grid"></div><div id="empty" hidden><h3>Nenhum projeto encontrado.</h3><p>Tente outro nome ou explore todos os segmentos.</p><button id="reset" class="button">Limpar filtros</button></div></section>
-</main><footer class="wrap"><span>HBS <span class="footer-muted">/ Portfólio de sites</span></span><span class="footer-muted">Acervo para consulta do time</span><a href="#title">Voltar ao topo ↑</a></footer>
-<dialog id="viewer" aria-labelledby="viewer-title"><div class="viewer-head"><div><p id="viewer-category" class="eyebrow"></p><h2 id="viewer-title"></h2></div><div class="viewer-actions"><a id="viewer-link" target="_blank" rel="noopener noreferrer">Ver site online ↗</a><button id="close" aria-label="Fechar visualizador">Fechar <span aria-hidden="true">×</span></button></div></div><div id="viewer-scroll" tabindex="0" aria-label="Captura completa, role para explorar"><p id="image-status" role="status">Carregando captura completa…</p><img id="full-image" alt=""></div></dialog>
+  <section class="intro" aria-labelledby="title">
+    <div><p class="eyebrow">HBS / PROJETOS DIGITAIS</p><h1 id="title">Diferentes marcas.<br><span>Nosso olhar digital.</span></h1></div>
+    <div class="intro-note"><span class="note-arrow" aria-hidden="true">↙</span><p>Explore os sites desenvolvidos pela HBS. Filtre por segmento, amplie as capturas e conheça cada projeto online.</p></div>
+  </section>
+  <section id="catalogo" aria-labelledby="catalog-title">
+    <div class="catalog-top">
+      <h2 id="catalog-title">Explore o acervo</h2>
+      <div class="search" role="search">
+        <span aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="Nome, domínio ou categoria" aria-label="Buscar por nome, domínio ou categoria" autocomplete="off">
+        <button id="clear-search" type="button" aria-label="Limpar busca" disabled>×</button>
+      </div>
+    </div>
+    <fieldset class="filter-fieldset"><legend class="sr-only">Filtrar por segmento</legend><div id="filters" class="filters"></div></fieldset>
+    <div class="results"><p id="count" role="status" aria-live="polite" aria-atomic="true"></p><span>Clique na captura para explorar <span aria-hidden="true">↗</span></span></div>
+    <div id="grid" class="grid"></div>
+    <div id="empty" hidden><h3>Nenhum projeto corresponde à seleção.</h3><p>Tente outro nome, domínio ou categoria, ou explore o acervo completo.</p><button id="reset" class="button" type="button">Limpar busca e filtros</button></div>
+  </section>
+</main>
+<footer class="wrap"><span>HBS <span class="footer-muted">/ Portfólio de sites</span></span><span class="footer-muted">Acervo para consulta do time</span><a href="#title">Voltar ao topo ↑</a></footer>
+<p id="copy-status" class="toast" role="status" aria-live="polite" aria-atomic="true"></p>
+<dialog id="viewer" aria-labelledby="viewer-title">
+  <div class="viewer-head">
+    <div class="viewer-heading"><p id="viewer-category" class="eyebrow"></p><h2 id="viewer-title"></h2></div>
+    <button id="close" type="button" aria-label="Fechar visualizador">Fechar <span aria-hidden="true">×</span></button>
+    <div class="viewer-actions">
+      <a id="viewer-link" target="_blank" rel="noopener noreferrer">Ver site online ↗</a>
+      <button id="viewer-copy" type="button">Copiar link <span aria-hidden="true">⧉</span></button>
+      <a id="original-link" target="_blank" rel="noopener noreferrer">Abrir imagem original ↗</a>
+      <button id="zoom" type="button" aria-pressed="false">Ampliar captura <span aria-hidden="true">＋</span></button>
+    </div>
+    <p id="viewer-copy-status" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
+  <div id="viewer-scroll" tabindex="0" aria-label="Captura completa. Role para explorar; use Ampliar captura para ler os detalhes.">
+    <p id="image-status" role="status">Carregando captura completa…</p>
+    <img id="full-image" alt="">
+  </div>
+</dialog>
+<dialog id="copy-fallback" aria-labelledby="copy-title">
+  <h2 id="copy-title">Copie o link manualmente</h2>
+  <p>A cópia automática não está disponível. Selecione o endereço abaixo e use Ctrl+C, ⌘C ou a opção Copiar do celular.</p>
+  <label for="manual-url">URL do site</label><input id="manual-url" type="text" readonly>
+  <div class="manual-actions"><button id="select-url" class="button" type="button">Selecionar endereço</button><button id="close-copy" class="button secondary" type="button">Fechar</button></div>
+</dialog>
 <noscript>Ative o JavaScript para explorar o catálogo de projetos.</noscript>
-</body></html>
+</body>
+</html>

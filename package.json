@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node scripts/server.cjs",
-    "check": "node --check assets/js/app.js && node --check assets/data/projects.js && node --check scripts/server.cjs && node scripts/check.cjs",
+    "check": "node --check assets/js/app.js && node --check assets/js/catalog.js && node --check assets/data/projects.js && node --check scripts/server.cjs && node scripts/check.cjs && node --test scripts/catalog.test.cjs",
     "check:http": "node scripts/check-http.cjs"
   },
   "description": "Portfólio interno de sites desenvolvidos pela HBS",

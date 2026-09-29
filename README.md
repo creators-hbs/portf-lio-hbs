@@ -23,11 +23,13 @@ assets/
   fonts/                           Fontes Sora locais
   css/styles.css                   Estilos responsivos e tokens HBS
   js/app.js                        Filtros, busca e visualizador
+  js/catalog.js                    Busca normalizada e cópia de URLs
   data/projects.js                 Fonte única do catálogo
 scripts/
   server.cjs                       Servidor local
   check.cjs                        Integridade do catálogo e caminhos
   check-http.cjs                   Verificação HTTP de todos os assets
+  catalog.test.cjs                 Testes de busca, filtros, cópia e contraste
 source-materials/
   brand/                           Logos originais preservadas
   screenshots/                     Capturas originais com nomes de origem
@@ -35,6 +37,7 @@ source-materials/
 docs/
   contact-sheet.jpg                Prancha de inspeção das capturas
   design-notes.md                   Identidade e decisões do catálogo
+  refinement-review.md             Evidências e pendências do refinamento
 .gitignore                         Exclusões de arquivos locais/temporários
 .gitattributes                     Tratamento de texto e arquivos binários
 package.json                       Comandos do projeto
@@ -42,7 +45,7 @@ package.json                       Comandos do projeto
 
 ## Manutenção
 
-Edite nomes, URLs e categorias em `assets/data/projects.js`. Caminhos de imagem nesse catálogo são relativos ao `index.html`, não ao arquivo JavaScript. Caminhos de fontes no CSS são relativos a `assets/css/`. Mantenha a ordem de carregamento: catálogo antes de `app.js`.
+Edite nomes, URLs e categorias em `assets/data/projects.js`. Os nomes das categorias estão no objeto central `categories`, e os projetos referenciam seus identificadores. Caminhos de imagem nesse catálogo são relativos ao `index.html`, não ao arquivo JavaScript. Caminhos de fontes no CSS são relativos a `assets/css/`. Mantenha a ordem de carregamento: `projects.js`, `catalog.js`, `app.js`.
 
 Edite os tokens de cor em `assets/css/styles.css`. Os materiais de referência não são carregados pelo site. Os originais e suas cópias de uso têm propósitos distintos e foram preservados sem alteração de conteúdo.
 
