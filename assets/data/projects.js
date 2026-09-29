@@ -7,7 +7,8 @@ const categories = Object.freeze({
   chineseMedicine: 'Medicina Chinesa',
   realEstate: 'Imóveis',
   tourism: 'Turismo',
-  places: 'Imóveis, Turismo e Hospitalidade',
+  places: 'Hospitalidade',
+  condominiumManagement: 'Administradora de Condomínios',
   commerce: 'Comércio e Produtos',
   agro: 'Agro e Tecnologia'
 });
@@ -30,7 +31,7 @@ const projects = [
   ['bxmed','BX Med','https://bxmed.com.br','accounting'],
   ['bhaskaraconsult','Bhaskara Consult','https://bhaskaraconsult.com.br','accounting'],
   ['maosquetocam','Mãos que Tocam','https://maosquetocam.com.br','homeCare'],
-  ['mendescondominios','Mendes Soluções Condominiais','https://mendescondominios.com.br','places'],
+  ['mendescondominios','Mendes Soluções Condominiais','https://mendescondominios.com.br','condominiumManagement'],
   ['tres16agrogeo','Três16 Agrogeo','https://tres16agrogeo.com.br','agro'],
   ['bancadadotenis','Bancada do Tênis','https://bancadadotenis.com.br','commerce'],
   ['kingfit','King Fit','https://kingfit.com.br','commerce'],

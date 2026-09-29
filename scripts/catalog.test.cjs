@@ -20,11 +20,13 @@ test('busca por domínio e categoria renomeada', () => {
   assert.deepEqual(ids(selectProjects(projects, 'all', 'bxmed.com.br')), ['bxmed']);
   assert.deepEqual(ids(selectProjects(projects, 'realEstate', '')), ['sardoimobiliaria', 'vivianesilva']);
   assert.deepEqual(ids(selectProjects(projects, 'tourism', '')), ['bellagioviagens']);
-  assert.deepEqual(ids(selectProjects(projects, 'places', '')), ['fmconciergestays', 'mendescondominios']);
-  assert.equal(categories.places, 'Imóveis, Turismo e Hospitalidade');
+  assert.deepEqual(ids(selectProjects(projects, 'places', '')), ['fmconciergestays']);
+  assert.deepEqual(ids(selectProjects(projects, 'condominiumManagement', '')), ['mendescondominios']);
+  assert.equal(categories.places, 'Hospitalidade');
+  assert.equal(categories.condominiumManagement, 'Administradora de Condomínios');
 });
 test('todos os filtros exclusivos e suas contagens', () => {
-  const counts = { accounting:4, forensicPhysiotherapy:1, dentistry:1, homeCare:2, psychology:1, chineseMedicine:1, realEstate:2, tourism:1, places:2, commerce:5, agro:2 };
+  const counts = { accounting:4, forensicPhysiotherapy:1, dentistry:1, homeCare:2, psychology:1, chineseMedicine:1, realEstate:2, tourism:1, places:1, condominiumManagement:1, commerce:5, agro:2 };
   for (const [id, count] of Object.entries(counts)) {
     const result = selectProjects(projects, id, '');
     assert.equal(result.length, count);
