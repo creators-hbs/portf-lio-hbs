@@ -1,1 +1,14 @@
-{"name":"hbs-portfolio","version":"1.0.0","private":true,"scripts":{"start":"node scripts/server.cjs","check":"node --check app.js && node --check projects.js && node scripts/check.cjs"}}
+{
+  "name": "hbs-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/server.cjs",
+    "check": "node --check assets/js/app.js && node --check assets/data/projects.js && node --check scripts/server.cjs && node scripts/check.cjs",
+    "check:http": "node scripts/check-http.cjs"
+  },
+  "description": "Portfólio interno de sites desenvolvidos pela HBS",
+  "engines": {
+    "node": ">=20"
+  }
+}

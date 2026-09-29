@@ -1,23 +1,68 @@
 # Portfólio interno HBS
 
-Página estática em português, sem dependências ou etapa de build. Execute `npm.cmd start` no PowerShell (ou `npm start` em outros terminais) e abra http://localhost:4173. Também é possível abrir `index.html` diretamente. Requer Node.js para servidor e verificações.
+Catálogo estático de 22 sites, com filtros por segmento, busca, capturas completas em visualizador acessível e links para os sites publicados. HTML, CSS e JavaScript sem dependências externas; fontes locais.
 
-`npm.cmd run check` verifica sintaxe, 22 registros sem duplicação, assets e igualdade binária entre capturas completas e originais.
+## Executar
 
-Validação executada: verificação de catálogo e sintaxe aprovada; servidor local respondendo HTTP 200. A ferramenta de prévia informou que não há navegador disponível, portanto a verificação visual desktop/mobile e a interação por teclado ainda precisam de conferência manual.
+Requer Node.js 20 ou superior para o servidor e as verificações. Não é necessário instalar dependências.
 
-- `projects.js`: fonte única dos nomes, URLs, categorias e imagens.
-- `index.html`, `styles.css`, `app.js`: estrutura, identidade e interações.
-- `assets/cards`: recortes superiores JPEG de 800 × 600, sem deformação.
-- `assets/full`: cópias integrais PNG com nomes estáveis.
-- `assets/fonts`: Sora local fornecida pelo design system.
-- `assets/logo_hbs.png`: logo oficial original sobre branco, exibida em 180 px no desktop e 120 px no celular, sem recolorir ou deformar. O nome logo_hbs(1).png não foi encontrado; foi inspecionado e usado o original logo_hbs.png disponível.
+```sh
+npm start
+```
 
-Originais da raiz e design system preservados. O arquivo `Portfólio HBS - Copia(1).zip` não estava presente na pasta; as 22 capturas extraídas estavam disponíveis. Nenhuma imagem fictícia foi usada.
+Abra http://localhost:4173. No PowerShell com restrição de scripts, use `npm.cmd start`. Também é possível abrir `index.html` diretamente no navegador. Para mudar a porta no PowerShell: `$env:PORT = '4174'` antes de iniciar.
 
-Categorias baseadas nas capturas: BX Med é contabilidade médica, King Fit é vestuário e Viviane Silva é imobiliário. Nomes e URLs do briefing preservados, inclusive a grafia do domínio niklausstretwaer.com.br. A miniatura Carrano 360 mostra uma loja de motos; o vínculo ao domínio foi mantido conforme arquivo/briefing. Disponibilidade dos sites externos não foi auditada.
+## Estrutura
 
-Identidade visual HBS: tokens reutilizáveis em `styles.css`. Branco #FFFFFF no fundo e no visualizador; azul-marinho #021F47 em títulos, texto principal e filtro selecionado; azul médio #1C4A8A em links, botões, hover e foco; azul-claro #6FC6FC em indicadores e na linha do filtro ativo. Neutros derivados: #F3F7FC em superfícies, #E7F2FC no hover suave, #506580 em texto secundário, #D6E1EF em divisórias e #7388A3 nas bordas de controles. Estados desabilitados: fundo #E8EEF5 e texto #5C6C80. Sora local e estrutura responsiva preservadas. As capturas mantêm suas cores originais.
+```text
+index.html                         Entrada do site
+assets/
+  brand/                           Logos usadas/disponíveis para a interface
+  cards/                           22 miniaturas JPEG otimizadas
+  full/                            22 capturas PNG integrais com nomes estáveis
+  fonts/                           Fontes Sora locais
+  css/styles.css                   Estilos responsivos e tokens HBS
+  js/app.js                        Filtros, busca e visualizador
+  data/projects.js                 Fonte única do catálogo
+scripts/
+  server.cjs                       Servidor local
+  check.cjs                        Integridade do catálogo e caminhos
+  check-http.cjs                   Verificação HTTP de todos os assets
+source-materials/
+  brand/                           Logos originais preservadas
+  screenshots/                     Capturas originais com nomes de origem
+  references/altus-design-system/   Referência fornecida, sem uso em runtime
+docs/
+  contact-sheet.jpg                Prancha de inspeção das capturas
+  design-notes.md                   Identidade e decisões do catálogo
+.gitignore                         Exclusões de arquivos locais/temporários
+.gitattributes                     Tratamento de texto e arquivos binários
+package.json                       Comandos do projeto
+```
 
-Revisão da paleta: `npm.cmd run check` aprovado. Não há aplicativo ou navegador disponível na ferramenta de prévia; revisão visual desktop/mobile permanece pendente. Nenhum deploy realizado.
-O visualizador usa dialog nativo, com foco modal, Escape, fechamento explícito e retorno de foco. Imagens completas carregam somente ao abrir; a grade usa miniaturas e carregamento tardio. Não há autenticação, serviços externos, rastreamento ou deploy.
+## Manutenção
+
+Edite nomes, URLs e categorias em `assets/data/projects.js`. Caminhos de imagem nesse catálogo são relativos ao `index.html`, não ao arquivo JavaScript. Caminhos de fontes no CSS são relativos a `assets/css/`. Mantenha a ordem de carregamento: catálogo antes de `app.js`.
+
+Edite os tokens de cor em `assets/css/styles.css`. Os materiais de referência não são carregados pelo site. Os originais e suas cópias de uso têm propósitos distintos e foram preservados sem alteração de conteúdo.
+
+## Verificações antes do commit
+
+```sh
+npm run check
+npm run check:http
+```
+
+No PowerShell, use `npm.cmd` caso necessário. A primeira verificação confere sintaxe, 22 projetos únicos, URLs HTTPS, igualdade binária das capturas e caminhos HTML/CSS, inclusive capitalização. A segunda inicia um servidor temporário em porta livre e verifica o conteúdo de todos os arquivos do site por HTTP.
+
+A página não exige build. O Git já está inicializado; revise `git status` e `git diff` antes de preparar seu commit. Os materiais originais e de referência continuam versionáveis; o `.gitignore` exclui somente dependências, saídas, configurações locais e temporários.
+
+## Hospedagem estática
+
+A entrada permanece na raiz, com caminhos relativos compatíveis com uma subpasta de repositório. O conjunto necessário à publicação é `index.html` e `assets/`. `scripts/`, `docs/` e `source-materials/` não são necessários para servir o site. O servidor local expõe apenas a entrada e os assets; isso não configura regras em uma futura hospedagem externa.
+
+Não foi criado commit nem realizado deploy. Não há autenticação ou rastreamento.
+
+## Validação visual
+
+Não há navegador conectado à ferramenta de prévia neste ambiente. A revisão visual e interativa em desktop/mobile permanece manual: conferir filtros, busca, abertura da captura, rolagem, Escape, retorno de foco e links externos.
