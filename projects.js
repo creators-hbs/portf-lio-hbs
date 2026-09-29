@@ -1,0 +1,25 @@
+/* Fonte única do catálogo. URLs preservadas conforme o briefing. */
+const projects = [
+  ['niklausstretwaer','Niklaus Streetwear','https://niklausstretwaer.com.br','Comércio e Produtos'],
+  ['sardoimobiliaria','Sardo Imobiliária','https://sardoimobiliaria.com.br','Imobiliário e Hospitalidade'],
+  ['vivianesilva','Viviane Silva','https://vivianesilva.com.br','Imobiliário e Hospitalidade'],
+  ['carrano360','Carrano 360','https://carrano360.com','Comércio e Produtos'],
+  ['clinicadepsicologiamb','Clínica de Psicologia MB','https://clinicadepsicologiamb.com.br','Saúde e Bem-estar'],
+  ['equilibrioeharmonia','Equilíbrio e Harmonia','https://equilibrioeharmonia.com.br','Saúde e Bem-estar'],
+  ['bellagioviagens','Bellagio Viagens','https://bellagioviagens.com.br','Imobiliário e Hospitalidade'],
+  ['periciadesucesso','Perícia de Sucesso','https://periciadesucesso.com.br','Consultoria e Negócios'],
+  ['3dton','3D Ton','https://3dton.com.br/','Comércio e Produtos'],
+  ['myodontologia','My Odontologia','https://myodontologia.com.br/','Saúde e Bem-estar'],
+  ['longevcare','Longev Care','https://longevcare.com.br/','Saúde e Bem-estar'],
+  ['mastersoloagro','Master Solo Agro','https://mastersoloagro.com.br/','Agro e Tecnologia'],
+  ['fmconciergestays','FM Concierge Stays','https://fmconciergestays.com.br/','Imobiliário e Hospitalidade'],
+  ['porcinienevesconsultoria','Porcini e Neves Consultoria','https://porcinienevesconsultoria.com.br','Consultoria e Negócios'],
+  ['bxmed','BX Med','https://bxmed.com.br','Consultoria e Negócios'],
+  ['bhaskaraconsult','Bhaskara Consult','https://bhaskaraconsult.com.br','Consultoria e Negócios'],
+  ['maosquetocam','Mãos que Tocam','https://maosquetocam.com.br','Saúde e Bem-estar'],
+  ['mendescondominios','Mendes Soluções Condominiais','https://mendescondominios.com.br','Imobiliário e Hospitalidade'],
+  ['tres16agrogeo','Três16 Agrogeo','https://tres16agrogeo.com.br','Agro e Tecnologia'],
+  ['bancadadotenis','Bancada do Tênis','https://bancadadotenis.com.br','Comércio e Produtos'],
+  ['kingfit','King Fit','https://kingfit.com.br','Comércio e Produtos'],
+  ['contabillogus','Contábil Logus','https://contabillogus.com.br/','Consultoria e Negócios']
+].map(([id,name,url,category]) => ({id,name,url,category,thumbnail:`assets/cards/${id}.jpg`,image:`assets/full/${id}.png`}));

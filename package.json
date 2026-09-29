@@ -1,0 +1,1 @@
+{"name":"hbs-portfolio","version":"1.0.0","private":true,"scripts":{"start":"node scripts/server.cjs","check":"node --check app.js && node --check projects.js && node scripts/check.cjs"}}

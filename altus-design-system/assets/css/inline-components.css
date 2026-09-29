@@ -1,0 +1,5 @@
+.design-system-inline-1{color: #ebc86f!important}
+.design-system-inline-2{color: var( --e-global-color-secondary )!important;text-align: var(--text-align)!important}
+.design-system-inline-3{text-align: var(--text-align)!important;color: #ebc86f!important}
+.design-system-inline-4{font-weight: bold!important}
+.elementor-icon .design-system-email-icon{display:block;height:1em;position:relative;width:1em}
