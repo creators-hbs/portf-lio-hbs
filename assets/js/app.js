@@ -6,7 +6,7 @@ const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').
 for (const category of categories) {
   const button = document.createElement('button');
   button.type = 'button'; button.dataset.category = category;
-  button.textContent = `${category}  ${category === 'Todos' ? projects.length : projects.filter(p => p.category === category).length}`;
+  button.textContent = category;
   button.addEventListener('click', () => { active = category; render(); });
   $('#filters').append(button);
 }
